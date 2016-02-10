@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <meta charset="utf-8">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700italic,400italic' rel='stylesheet' type='text/css'>
 <style>
 	.state{
 		fill: none;
@@ -16,7 +17,8 @@
 		text-align: center;
 		padding: 20px;             
 		margin: 10px;
-		font: 12px sans-serif;        
+		font: 16px;  
+		font-family: 'Open Sans';      
 		background: lightsteelblue;   
 		border: 1px;      
 		border-radius: 2px;           
@@ -24,13 +26,13 @@
 	}
 	#tooltip h4{
 		margin:0;
-		font-size:14px;
+		font-size:16px;
 	}
 	#tooltip{
 		background:rgba(0,0,0,0.9);
 		border:1px solid grey;
 		border-radius:5px;
-		font-size:12px;
+		font-size:14px;
 		width:auto;
 		padding:4px;
 		color:white;
@@ -49,20 +51,48 @@
 	#tooltip tr td:nth-child(2){
 		text-align:center;
 	}
+
+	#variantName{
+		margin:0;
+		font: 50px; 
+		font-family: 'Open Sans';
+		font-style: 400; 
+		color: #a9a9a9;
+		margin-left: 1%;
+		margin-top: 2%;
+	}
+	img{
+		margin: 0;
+		margin-left: 1%;
+	}
+	.section{
+		display: inline-block;
+	}
+
+
+
 </style>
 <body>
-<h1>Current search: RS0980988</h1>
+
+<h1 id="variantName">rs1800709</h1>
+
+<div class="section">
+<img src="infopic2.png" style="height:800;">
+</div>
+
+<div class="section">
 <div id="tooltip"></div><!-- div to hold tooltip. -->
-<svg width="960" height="1500" id="statesvg"></svg> <!-- svg to hold the map. -->
+<svg width="500" height="800" id="statesvg"></svg> <!-- svg to hold the map. -->
+</div>
+
 <script src="counties.js"></script> <!-- creates uStates. -->
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
 
 	function tooltipHtml(n, d){	/* function to create html content string in tooltip div. */
 		return "<h4>"+n+"</h4><table>"+
-			"<tr><td>Low</td><td>"+(d.low)+"</td></tr>"+
-			"<tr><td>Average</td><td>"+(d.avg)+"</td></tr>"+
-			"<tr><td>High</td><td>"+(d.high)+"</td></tr>"+
+			"<tr><td>"+(d.low)+"/"+(d.high)+"</td></tr>"+
+			"<tr><td>"+(d.avg)+"%"+"</td></tr>"+
 			"</table>";
 	}
 	
@@ -71,10 +101,12 @@
 	"ES", "EK", "KY", "PH", "KH", "VS", "UU"]
 		.forEach(function(d){ 
 			var low=Math.round(100*Math.random()), 
-				mid=Math.round(100*Math.random()), 
 				high=Math.round(100*Math.random());
-			sampleData[d]={low:d3.min([low,mid,high]), high:d3.max([low,mid,high]), 
-					avg:Math.round((low+mid+high)/3), color:d3.interpolate("#ffffcc", "#800026")(low/100)}; 
+			var smallest = Math.min(low,high);
+			var biggest = Math.max(low,high);
+			var frequency = (smallest/biggest)*100;
+			sampleData[d]={low:d3.min([low, high]), high:d3.max([low, high]), 
+					avg:Math.round(frequency), color:d3.interpolate("#F9FDFD", "#0B7DA0")(frequency/100)};
 		});
 	
 	/* draw states on id #statesvg */	
