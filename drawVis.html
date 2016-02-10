@@ -1,83 +1,13 @@
 <!--modified from http://bl.ocks.org/NPashaP/a74faf20b492ad377312 -->
 
 <!DOCTYPE html>
+
+<head>
 <meta charset="utf-8">
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700italic,400italic' rel='stylesheet' type='text/css'>
-<style>
-	.state{
-		fill: none;
-		stroke: #a9a9a9;
-		stroke-width: 1;
-	}
-	.state:hover{
-		fill-opacity:0.2;
-	}
-	#tooltip {   
-		position: absolute;           
-		text-align: center;
-		padding: 20px;             
-		margin: 10px;
-		font: 16px;  
-		font-family: 'Open Sans';      
-		background: lightsteelblue;   
-		border: 1px;      
-		border-radius: 2px;           
-		pointer-events: none;         
-	}
-	#tooltip h4{
-		margin:0;
-		font-size:16px;
-	}
-	#tooltip{
-		background:rgba(0,0,0,0.9);
-		border:1px solid grey;
-		border-radius:5px;
-		font-size:14px;
-		width:auto;
-		padding:4px;
-		color:white;
-		opacity:0;
-	}
-	#tooltip table{
-		table-layout:fixed;
-	}
-	#tooltip tr td{
-		padding:0;
-		margin:0;
-	}
-	#tooltip tr td:nth-child(1){
-		width:50px;
-	}
-	#tooltip tr td:nth-child(2){
-		text-align:center;
-	}
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700italic,400italic' rel='stylesheet' type='text/css'>	
+<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
 
-	#variantName{
-		margin:0;
-		font: 50px; 
-		font-family: 'Open Sans';
-		font-style: 400; 
-		color: #0B7DA0;
-		margin-left: 1%;
-		margin-top: 2%;
-	}
-
-	.section{
-		font-family: 'Open Sans';
-		display: inline-block;
-		height: 800px;
-	}
-
-
-	#checkboxes{
-		float:right;
-		padding: 3%;
-	}
-	p{
-		margin: 0;
-	}
-
-</style>
 <body>
 <h1 id="variantName">rs1800709</h1>
 
@@ -144,9 +74,15 @@
 			sampleData[d]={low:d3.min([low, high]), high:d3.max([low, high]), 
 					avg:Math.round(frequency), color:d3.interpolate("#F9FDFD", "#0B7DA0")(frequency/100)};
 		});
+
 	
 	/* draw states on id #statesvg */	
 	uStates.draw("#statesvg", sampleData, tooltipHtml);
+
+	/*svg.on("mouseover", function (){
+		console.log('mouseover');
+	});*/
+
 </script>
 
 </body>
