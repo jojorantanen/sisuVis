@@ -39,6 +39,26 @@
 			.style("fill",function(d){ return data[d.id].color; })
 			.on("mouseover", mouseOver).on("mouseout", mouseOut);
 	}
+
+
+/*	uStates.circles = function(id, data){
+		function mouseOver(){
+					console.log("taalla");
+			d3.select("#showMeDaCircles").transition().duration(200).style("opacity", .1);
+		}
+		function mouseOut(){
+			d3.select("#showMeDaCircles").transition().duration(500).style("opacity", 1);
+		}
+		d3.select(id).selectAll(".state")
+			.data(uStatePaths).enter().append("circle")
+			.attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
+   			.attr("r", 1.5);
+			.attr("class","state")
+			.attr("d",function(d){ return d.d;})
+			.style("fill",function(d){ return data[d.id].color; })
+			.on("mouseover", mouseOver).on("mouseout", mouseOut);
+	}*/
+
 	this.uStates=uStates;
 })();
 

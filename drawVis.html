@@ -9,7 +9,8 @@
 </head>
 
 <body>
-<h1 id="variantName">rs1800709</h1>
+<img id="logo" src="sisu_logo.png">
+<!--<h1> id="variantName">rs1800709</h1>-->
 
 <div class="section">
 <img src="infopic2.png">
@@ -21,33 +22,33 @@
 </div>
 
 <div class="section" id="checkboxes">
-<h3>Cohort</h3>
+<h3 id="showMeDaCircles">Cohort</h3>
 <form action="">
 <p>All cohorts</p>
-<input type="checkbox" name="vehicle" value="Bike">Botnia<br>
-<input type="checkbox" name="vehicle" value="Bike">H2000<br>
-<input type="checkbox" name="vehicle" value="Bike">EUFAM<br>
-<input type="checkbox" name="vehicle" value="Bike">DILGOM<br>
-<input type="checkbox" name="vehicle" value="Bike">ADGEN<br>
-<input type="checkbox" name="vehicle" value="Bike">1000 Genomes<br>
-<input type="checkbox" name="vehicle" value="Bike">Migraine Family Study<br>
-<input type="checkbox" name="vehicle" value="Bike">Fusion<br>
-<input type="checkbox" name="vehicle" value="Bike">METSIM Study<br>
-<input type="checkbox" name="vehicle" value="Car">The National FINRISK Study 
+<input type="checkbox" name="vehicle" value="Bike" checked>Botnia<br>
+<input type="checkbox" name="vehicle" value="Bike" checked>H2000<br>
+<input type="checkbox" name="vehicle" value="Bike" checked>EUFAM<br>
+<input type="checkbox" name="vehicle" value="Bike" checked>DILGOM<br>
+<input type="checkbox" name="vehicle" value="Bike" checked>ADGEN<br>
+<input type="checkbox" name="vehicle" value="Bike" checked>1000 Genomes<br>
+<input type="checkbox" name="vehicle" value="Bike" checked>Migraine Family Study<br>
+<input type="checkbox" name="vehicle" value="Bike" checked>Fusion<br>
+<input type="checkbox" name="vehicle" value="Bike" checked>METSIM Study<br>
+<input type="checkbox" name="vehicle" value="Car" checked>The National FINRISK Study 
 </form>
 <h3>Sex</h3>
 <form action="">
 <p>All sexes</p>
-<input type="checkbox" name="vehicle" value="Bike">Male<br>
-<input type="checkbox" name="vehicle" value="Car">Female
+<input type="checkbox" name="vehicle" value="Bike" checked>Male<br>
+<input type="checkbox" name="vehicle" value="Car" checked>Female
 </form>
 <h3>Age</h3>
 <form action="">
 <p>All ages</p>
-<input type="checkbox" name="vehicle" value="Bike">Under 18<br>
-<input type="checkbox" name="vehicle" value="Bike">18-30<br>
-<input type="checkbox" name="vehicle" value="Bike">30-64<br>
-<input type="checkbox" name="vehicle" value="Car">Over 64
+<input type="checkbox" name="vehicle" value="Bike" checked>Under 18<br>
+<input type="checkbox" name="vehicle" value="Bike" checked>18-30<br>
+<input type="checkbox" name="vehicle" value="Bike" checked>30-64<br>
+<input type="checkbox" name="vehicle" value="Car" checked>Over 64
 </form>
 </div>
 
@@ -73,15 +74,14 @@
 			var frequency = (smallest/biggest)*100;
 			sampleData[d]={low:d3.min([low, high]), high:d3.max([low, high]), 
 					avg:Math.round(frequency), color:d3.interpolate("#F9FDFD", "#0B7DA0")(frequency/100)};
+	
 		});
 
 	
 	/* draw states on id #statesvg */	
 	uStates.draw("#statesvg", sampleData, tooltipHtml);
-
-	/*svg.on("mouseover", function (){
-		console.log('mouseover');
-	});*/
+	//uStates.circles("#statesvg", sampleData);
+	
 
 </script>
 

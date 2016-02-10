@@ -59,15 +59,26 @@
 	.section{
 		font-family: 'Open Sans';
 		display: inline-block;
+		margin-top: 3.5%;
+		margin-left: 0.5%;
 		height: 800px;
 	}
 
+	#statesvg{
+		margin-left: 90%;
+	}
 
 	#checkboxes{
 		float:right;
 		padding: 3%;
 	}
+
 	p{
 		margin: 0;
+	}
+
+	#logo{
+		position: absolute;
+		height: 9%;
 	}
 
